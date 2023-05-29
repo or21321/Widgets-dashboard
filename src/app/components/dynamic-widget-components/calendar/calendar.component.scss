@@ -51,13 +51,22 @@
       width: 140px;
       height: 40px;
       border-radius: 4px;
+      text-transform: uppercase;
 
       &_start {
         border-color: #69FFC3;
+
+        &:hover {
+          background-color: rgba(105, 255, 195, 0.3);
+        }
       }
 
       &_join {
         border-color: #FF0E9F;
+
+        &:hover {
+          background-color: rgba(255, 14, 159, 0.3);
+        }
       }
     }
   }

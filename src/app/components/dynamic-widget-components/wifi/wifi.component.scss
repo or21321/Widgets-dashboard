@@ -1,0 +1,32 @@
+:host {
+  .wifi-widget {
+    display: flex;
+    gap: 40px;
+    padding: 18px 22px;
+
+    &__rows {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &__row {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: space-between;
+
+      span:first-child {
+        display: flex;
+        align-items: center;
+        width: 130px;
+        max-width: 130px;
+        gap: 15px;
+      }
+
+      span:last-child {
+        flex-grow: 1;
+        font-weight: 600;
+      }
+    }
+  }
+}

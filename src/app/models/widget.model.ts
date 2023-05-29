@@ -2,7 +2,7 @@ import {Draggable, GridsterConfig, GridsterItem, PushDirections, Resizable} from
 import {GridsterItemComponentInterface} from "angular-gridster2/lib/gridsterItem.interface";
 import {INIT_BASE_WIDGET_STYLE} from "../utils/constants";
 
-export type WidgetTypes = 'clock' | 'today-date' | 'image' | 'text' | 'calendar'
+export type WidgetTypes = 'clock' | 'today-date' | 'image' | 'text' | 'calendar' | 'wifi'
 
 // Widget class:
 interface InitDataByTypeMap {
@@ -10,7 +10,8 @@ interface InitDataByTypeMap {
   image: ImageWidgetData,
   'today-date': TodayDateWidgetData,
   'clock': ClockWidgetData,
-  calendar: CalendarWidgetData
+  calendar: CalendarWidgetData,
+  wifi: WifiWidgetData
 }
 
 interface InitStyleByTypeMap {
@@ -18,7 +19,8 @@ interface InitStyleByTypeMap {
   image: ImageWidgetStyle,
   'today-date': TodayDateWidgetStyle,
   'clock': ClockWidgetStyle,
-  calendar: CalendarWidgetStyle
+  calendar: CalendarWidgetStyle,
+  wifi: WifiWidgetStyle
 }
 
 export class Widget implements GridsterItem {
@@ -128,6 +130,10 @@ export class Widget implements GridsterItem {
           }
         },
       ]
+    },
+    wifi: {
+      wifiName: 'WIFI_1',
+      password: '1234'
     }
   }
 
@@ -150,6 +156,10 @@ export class Widget implements GridsterItem {
     },
     calendar: {
       ...INIT_BASE_WIDGET_STYLE
+    },
+    wifi: {
+      ...INIT_BASE_WIDGET_STYLE,
+      fontSize: '20px'
     }
   }
 }
@@ -193,8 +203,12 @@ export interface CalendarWidgetStyle extends BaseWidgetStyle {
 
 }
 
+export interface WifiWidgetStyle extends BaseWidgetStyle {
+
+}
+
 // Widget data:
-type WidgetData = TextWidgetData | ImageWidgetData | CalendarWidgetData
+type WidgetData = TextWidgetData | ImageWidgetData | CalendarWidgetData | WifiWidgetData
 
 export interface TextWidgetData {
   text: string
@@ -210,6 +224,11 @@ export interface ClockWidgetData {
 export interface TodayDateWidgetData {
 }
 
+export interface WifiWidgetData {
+  wifiName: string
+  password: string
+}
+// Calendar widget models:
 export interface CalendarWidgetData {
   meetings: Meeting[]
 }

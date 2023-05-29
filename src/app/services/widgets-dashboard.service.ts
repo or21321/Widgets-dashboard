@@ -79,7 +79,7 @@ export class WidgetsDashboardService {
           margin: '0 auto 0 0',
           fontSize: '40px'
         }, 1, 0, 2, 5),
-      new Widget('today-date', undefined, undefined, 17, 0, 2, 2),
+      new Widget('today-date', undefined, undefined, 18, 0, 2, 1),
       new Widget('image', {
         src: '/assets/location.svg'
       }, {
@@ -102,7 +102,16 @@ export class WidgetsDashboardService {
         ...INIT_BASE_WIDGET_STYLE,
         backgroundColor: 'rgba(0, 21, 53, 0.6)',
         fontSize: '20px'
-      }, 6, 3, 6, 9)
+      }, 6, 2, 6, 9),
+      new Widget('wifi', {
+        wifiName: 'WIFI_1',
+        password: '1234'
+      }, {
+        ...INIT_BASE_WIDGET_STYLE,
+        fontSize: '20px',
+        backgroundColor: 'rgba(0, 21, 53, 0.6)',
+        borderRadius: '4px'
+      }, 0, 9, 2, 4)
     ];
     this.saveWidgetsToLocalStorage(mockWidgets)
     return mockWidgets

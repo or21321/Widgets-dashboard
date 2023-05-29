@@ -7,13 +7,15 @@ import {Store} from "@ngxs/store";
 import {ClockComponent} from "../dynamic-widget-components/clock/clock.component";
 import {CalendarComponent} from "../dynamic-widget-components/calendar/calendar.component";
 import {TodayDateComponent} from "../dynamic-widget-components/today-date/today-date.component";
+import {WifiComponent} from "../dynamic-widget-components/wifi/wifi.component";
 
 interface DynamicWidgetComponents {
   image: typeof ImageComponent,
   text: typeof TextComponent,
   clock: typeof ClockComponent,
   "today-date": typeof TodayDateComponent,
-  calendar: typeof CalendarComponent
+  calendar: typeof CalendarComponent,
+  wifi: typeof WifiComponent
 }
 
 enum WidgetTypesEnum {
@@ -21,7 +23,8 @@ enum WidgetTypesEnum {
   'text' = 'text',
   'clock' = 'clock',
   'today-date' = 'today-date',
-  'calendar' = 'calendar'
+  'calendar' = 'calendar',
+  'wifi' = 'wifi'
 }
 
 @Component({
@@ -35,7 +38,8 @@ export class DynamicComponentContainerComponent implements OnInit {
     [WidgetTypesEnum['today-date']]: TodayDateComponent,
     [WidgetTypesEnum['image']]: ImageComponent,
     [WidgetTypesEnum['text']]: TextComponent,
-    [WidgetTypesEnum['calendar']]: CalendarComponent
+    [WidgetTypesEnum['calendar']]: CalendarComponent,
+    [WidgetTypesEnum['wifi']]: WifiComponent
   }
 
   @Input() widget!: Widget

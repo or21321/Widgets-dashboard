@@ -27,6 +27,7 @@ import {NgxsModule} from "@ngxs/store";
 import {WidgetsState} from "./store/dashboard-widgets/dashboard-widgets.state";
 import { DynamicComponentContainerComponent } from './components/dynamic-component-container/dynamic-component-container.component';
 import { CalendarComponent } from './components/dynamic-widget-components/calendar/calendar.component';
+import { WifiComponent } from './components/dynamic-widget-components/wifi/wifi.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CalendarComponent } from './components/dynamic-widget-components/calend
     WidgetEditorComponent,
     DynamicComponentContainerComponent,
     ClockComponent,
-    CalendarComponent
+    CalendarComponent,
+    WifiComponent
   ],
   imports: [
     BrowserModule, GridsterModule, FormsModule, BrowserAnimationsModule,
