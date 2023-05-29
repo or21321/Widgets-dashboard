@@ -81,7 +81,7 @@ export class WidgetsDashboardService {
         }, 1, 0, 2, 5),
       new Widget('today-date', undefined, undefined, 18, 0, 2, 1),
       new Widget('image', {
-        src: '/assets/location.svg'
+        src: 'assets/location.svg'
       }, {
         ...INIT_BASE_WIDGET_STYLE,
         backgroundColor: '',
@@ -93,10 +93,10 @@ export class WidgetsDashboardService {
         margin: '0 0 0 auto'
       }, 19, 0, 2, 2),
       new Widget('image', {
-        src: '/assets/clock.svg'
+        src: 'assets/clock.svg'
       }, undefined, 21, 0, 2, 1),
       new Widget('image', {
-        src: '/assets/kramer-logo.png'
+        src: 'assets/kramer-logo.png'
       }, undefined, 8, 10, 1, 5),
       new Widget('calendar', undefined, {
         ...INIT_BASE_WIDGET_STYLE,

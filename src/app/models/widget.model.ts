@@ -93,7 +93,7 @@ export class Widget implements GridsterItem {
       text: 'Insert text...'
     },
     image: {
-      src: '/assets/tv.png'
+      src: 'assets/tv.png'
     },
     clock: {},
     'today-date': {},
