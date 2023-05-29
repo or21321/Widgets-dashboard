@@ -1,22 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Widget, WidgetTypes} from "../../models/widget.model";
 import {AbstractControl, FormBuilder, FormGroup} from "@angular/forms";
-import {WidgetTypes} from "../../app.component";
-import {Widget, WidgetsDashboardService} from "../../services/widgets-dashboard.service";
+import {WidgetsDashboardService} from "../../services/widgets-dashboard.service";
+import {Store} from "@ngxs/store";
+import {AddWidget} from "../../store/dashboard-widgets/dashboard-widgets.actions";
 
 @Component({
-  selector: 'app-add-widget-form',
-  templateUrl: './add-widget-form.component.html',
-  styleUrls: ['./add-widget-form.component.scss']
+  selector: 'widget-editor',
+  templateUrl: './widget-editor.component.html',
+  styleUrls: ['./widget-editor.component.scss']
 })
-export class AddWidgetFormComponent implements OnInit {
+export class WidgetEditorComponent implements OnInit {
   widgetForm = this.fb.group({
     widgetType: this.fb.control(''),
     data: this.fb.group({})
   })
 
   widgetTypes: WidgetTypes[] = [
-    'date-picker',
-    'time-picker',
+    'today-date',
+    'clock',
     'image',
     'text'
   ]
@@ -29,14 +31,13 @@ export class AddWidgetFormComponent implements OnInit {
     return this.widgetForm.get('data') as FormGroup
   }
 
-  constructor(private fb: FormBuilder, private widgetsDashboardService: WidgetsDashboardService) {
+  constructor(private fb: FormBuilder, private widgetsDashboardService: WidgetsDashboardService
+  , private store: Store) {
     this.widgetForm.get('widgetType')?.valueChanges.subscribe((val) => {
-      console.log("val:", val)
       if (val === 'text') {
         setTimeout(() => {
           this.widgetFormData?.reset()
           this.widgetFormData?.addControl('text', this.fb.control(''))
-          console.log("this.widgetForm:", this.widgetForm)
         })
       }
     })
@@ -52,7 +53,7 @@ export class AddWidgetFormComponent implements OnInit {
 
   add(): void {
     console.log('add', this.widgetForm)
-    this.widgetsDashboardService.addWidget(this.widgetForm.value as Widget)
+    // this.widgetsDashboardService.addWidget(this.widgetForm.value as Widget)
+    this.store.dispatch(new AddWidget(this.widgetForm.value as Widget))
   }
-
 }

@@ -1,0 +1,60 @@
+<form class="settings-form" [formGroup]="settingsForm">
+  <div class="settings-form__container">
+    <div class="settings-form__header">
+      <h4>Dashboard settings</h4>
+    </div>
+
+    <div class="settings-form__body">
+      <mat-form-field class="example-full-width"
+                      [formGroup]="settingsForm">
+        <mat-label>Min Rows</mat-label>
+        <input matInput placeholder="Min Rows" formControlName="minRows" type="number"
+               min="1" max="25"
+        >
+      </mat-form-field>
+      <mat-form-field class="example-full-width"
+                      [formGroup]="settingsForm">
+        <mat-label>Max Rows</mat-label>
+        <input matInput placeholder="Max Rows" formControlName="maxRows" type="number"
+               min="1" max="25"
+        >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width"
+                      [formGroup]="settingsForm">
+        <mat-label>Min Cols</mat-label>
+        <input matInput placeholder="Cols" formControlName="minCols" type="number"
+               min="1" max="25"
+        >
+      </mat-form-field>
+      <mat-form-field class="example-full-width"
+                      [formGroup]="settingsForm">
+        <mat-label>Max Cols</mat-label>
+        <input matInput placeholder="Cols" formControlName="maxCols" type="number"
+               min="1" max="25"
+        >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width"
+                      [formGroup]="settingsForm">
+        <mat-label>Background color</mat-label>
+        <input matInput placeholder="Background color" formControlName="bgColor" type="color">
+      </mat-form-field>
+
+      <section class="settings-form__bg-image">
+        <div *ngIf="!dashboardImgSrc; else bgImg">
+          <label for="bgImage">Background image</label>
+          <input #input (change)="loadFile(input); input.value=''" type="file"
+                 accept=".jpeg, .jpg, .png, .gif" name="image"
+                 id="bgImage">
+        </div>
+
+        <ng-template #bgImg>
+          <img #image id="image" [src]="dashboardImgSrc"/>
+        </ng-template>
+      </section>
+    </div>
+
+  </div>
+  <button mat-button (click)="save()">Save</button>
+</form>

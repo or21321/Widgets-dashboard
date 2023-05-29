@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .actions-container {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    gap: 15px;
+    bottom: 0;
+    //width: 100%;
+    left: 0;
+    align-items: center;
+    margin: 5px 15px;
+  }
+
+  .trash-icon {
+    visibility: hidden;
+  }
+
+  .edit-icon {
+    visibility: hidden;
+  }
+
+
+  &:hover {
+    .trash-icon {
+      visibility: visible;
+    }
+    .edit-icon {
+      visibility: visible;
+    }
+    .actions-container {
+      visibility: visible;
+    }
+  }
+}

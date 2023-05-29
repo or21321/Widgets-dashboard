@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    padding: 22px 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 600;
+  }
+
+  .calendar {
+    margin: 0;
+
+    &__meeting {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      padding: 0 32px;
+      border-radius: 4px;
+      height: 100px;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      &-type {
+        width: 64px;
+      }
+
+      &-name {
+        flex-grow: 1;
+      }
+
+      &-time {
+        width: 140px;
+      }
+
+      &-action-btn {
+        width: 140px;
+      }
+
+    }
+
+    &__button {
+      //padding: 10px 20px;
+      border: 1px solid;
+      width: 140px;
+      height: 40px;
+      border-radius: 4px;
+
+      &_start {
+        border-color: #69FFC3;
+      }
+
+      &_join {
+        border-color: #FF0E9F;
+      }
+    }
+  }
+}

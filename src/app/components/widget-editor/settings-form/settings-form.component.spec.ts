@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddWidgetFormComponent } from './add-widget-form.component';
+import { SettingsFormComponent } from './settings-form.component';
 
-describe('AddWidgetFormComponent', () => {
-  let component: AddWidgetFormComponent;
-  let fixture: ComponentFixture<AddWidgetFormComponent>;
+describe('SettingsFormComponent', () => {
+  let component: SettingsFormComponent;
+  let fixture: ComponentFixture<SettingsFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddWidgetFormComponent ]
+      declarations: [ SettingsFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddWidgetFormComponent);
+    fixture = TestBed.createComponent(SettingsFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

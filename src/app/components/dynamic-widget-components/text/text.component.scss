@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+
+  p {
+    width: fit-content;
+  }
+  //
+  //.trash-icon {
+  //  visibility: hidden;
+  //}
+  //
+  //.edit-icon {
+  //  visibility: hidden;
+  //}
+  //
+  //&:hover {
+  //  .trash-icon {
+  //    visibility: visible;
+  //  }
+  //  .edit-icon {
+  //    visibility: visible;
+  //  }
+  //}
+
+  //.actions-container {
+  //  display: flex;
+  //  gap: 15px;
+  //  justify-content: space-between;
+  //  align-items: center;
+  //  margin: 5px 15px;
+  //}
+}

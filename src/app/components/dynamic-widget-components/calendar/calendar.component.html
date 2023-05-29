@@ -1,0 +1,30 @@
+<h3 [style.background-color]="style.backgroundColor">
+  <img src="/assets/calendar-logo.svg">
+  <span>
+  Room Calendar
+  </span>
+</h3>
+
+<ul class="calendar">
+  <li class="calendar__meeting" *ngFor="let meeting of meetings" [style.background-color]="style.backgroundColor">
+    <div class="calendar__meeting-type">
+      <img src="/assets/{{meeting.meetingPlatformType}}-logo.svg">
+    </div>
+    <div class="calendar__meeting-time">
+      {{meeting.meetingTime.start | date: 'HH:mm'}}
+      ~
+      {{meeting.meetingTime.end | date: 'HH:mm'}}
+    </div>
+    <div class="calendar__meeting-name">
+      {{meeting.meetingName}}
+    </div>
+    <div class="calendar__meeting-action-btn">
+      <button (click)="startMeeting(meeting.id)" *ngIf="!meeting.isStarted; else joinBtn"
+              class="calendar__button calendar__button_start">Start
+      </button>
+      <ng-template #joinBtn>
+        <button (click)="joinMeeting(meeting.id)" class="calendar__button calendar__button_join">Join</button>
+      </ng-template>
+    </div>
+  </li>
+</ul>

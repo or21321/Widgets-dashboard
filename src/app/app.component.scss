@@ -1,3 +1,69 @@
-:host{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
+:host {
+  * {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .mat-drawer-container {
+    height: 100%;
+  }
+
+  .dashboard-bg-color {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  gridster {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &-item {
+      background: none;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  ::ng-deep {
+    .icon {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .trash-icon {
+      background-image: url("../assets/trash-icon.svg");
+    }
+
+    .edit-icon {
+      background-image: url("../assets/edit-icon.svg");
+    }
+  }
+
+  .settings {
+    background-color: rgba(0, 21, 53, 0.6);
+    padding: 18px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+
+    &__icon {
+      background-image: url("../assets/settings-icon.svg");
+      width: 64px;
+      height: 64px;
+    }
+  }
 }

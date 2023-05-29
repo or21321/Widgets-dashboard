@@ -1,0 +1,43 @@
+<!--<form class="widget-form" [formGroup]="widgetForm">-->
+<!--  <div class="widget-form__container">-->
+<!--    <div class="widget-form__header">-->
+<!--      <h4>Create a new widget</h4>-->
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label>Widget type</mat-label>-->
+<!--        <mat-select formControlName="widgetType">-->
+<!--          <mat-option *ngFor="let widgetType of widgetTypes" [value]="widgetType">-->
+<!--            {{widgetType}}-->
+<!--          </mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="widget-form__body">-->
+<!--      <ng-container *ngIf="widgetFormType?.value === 'time-picker'">-->
+<!--        TIME-->
+<!--      </ng-container>-->
+
+<!--      <ng-container *ngIf="widgetFormType?.value === 'date-picker'">-->
+<!--        DATE-->
+<!--      </ng-container>-->
+
+<!--      <ng-container *ngIf="widgetFormType?.value === 'image'">-->
+<!--        IMAGE-->
+<!--      </ng-container>-->
+
+<!--      <ng-container *ngIf="widgetFormType?.value === 'text'">-->
+<!--        <mat-form-field class="example-full-width" *ngIf="widgetFormData && getControl(widgetFormData, 'text')" [formGroup]="widgetFormData">-->
+<!--          <mat-label>Text</mat-label>-->
+<!--          <input matInput placeholder="Insert text..." formControlName="text">-->
+<!--        </mat-form-field>-->
+<!--      </ng-container>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button mat-button (click)="add()">Add</button>-->
+<!--</form>-->
+<!--<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">-->
+<!--  <mat-tab label="Type">-->
+<!--    <widget-type-form></widget-type-form>-->
+<!--  </mat-tab>-->
+<!--  <mat-tab label="Properties">Properties</mat-tab>-->
+<!--  <mat-tab label="Style">Style</mat-tab>-->
+<!--</mat-tab-group>-->

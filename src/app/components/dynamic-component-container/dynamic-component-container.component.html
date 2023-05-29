@@ -1,0 +1,8 @@
+<ng-container
+  *ngComponentOutlet="getDynamicComponent(widget); injector: createInjectorForDynamicComponent(widget)">
+</ng-container>
+
+<div class="actions-container" *ngIf="isEditMode" >
+  <div class="trash-icon icon" (mouseup)="remove($event)" (mousedown)="$event.stopPropagation()"></div>
+  <div class="edit-icon icon" (mouseup)="edit($event)" (mousedown)="$event.stopPropagation()"></div>
+</div>

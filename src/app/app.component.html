@@ -1,42 +1,26 @@
-<!--<button (click)="addItem()">Add New</button>-->
-<!--<gridster [options]="options">-->
-<!--  <gridster-item [item]="item" *ngFor="let item of dashboard">-->
-<!--    <div class="button-holder">-->
-<!--      <div class="gridster-item-content" *ngIf="item['hasContent']">-->
-<!--        <div class="stuff">-->
-<!--          <img src="..logo.png">-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="item-buttons" *ngIf="item['hasContent']">-->
-<!--        <button class="remove-button" (mousedown)="removeItem($event, item)" (touchstart)="removeItem($event, item)">-->
-<!--          delete-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <label *ngIf="!item['hasContent']">{{ item['label'] }}</label>-->
-<!--      <button *ngIf="!item['hasContent']" (mousedown)="removeItem($event, item)" (touchstart)="removeItem($event, item)">-->
-<!--        delete-->
-<!--      </button>-->
-<!--    </div>-->
-<!--  </gridster-item>-->
-<!--</gridster>-->
+<mat-sidenav-container>
 
-<!--<button (click)="addItem()">Add New</button>-->
-<mat-toolbar>
-  <button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
+  <mat-sidenav-content>
+    <div class="dashboard-bg-color" [style.background-color]="(dashboardBgColor$ | async)"></div>
+    <gridster *ngIf="dashboardOptions && widgets.length" [options]="dashboardOptions" [style.background-image]="bgImg">
+      <gridster-item [item]="widget" *ngFor="let widget of widgets">
+        <dynamic-component-container [widget]="widget" [isEditMode]="isEditMode"></dynamic-component-container>
+      </gridster-item>
+    </gridster>
+    <div class="settings">
+      <div [matMenuTriggerFor]="menu" class="settings__icon icon"></div>
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toggleEditMode()">{{toggleEditText}}</button>
+      <button mat-menu-item (click)="isEditMode = !isEditMode">Add widget</button>
+      <button mat-menu-item (click)="openSettingsDialog()">Settings</button>
+    </mat-menu>
+  </mat-sidenav-content>
 
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="toggleEditMode()">{{toggleEditText}}</button>
-    <button mat-menu-item (click)="openAddWidgetDialog()">Add widget</button>
-  </mat-menu>
-
-  <span>Builder</span>
- </mat-toolbar>
-<!--<button (click)="addItem()" mat-button>Add widget</button>-->
-<gridster [options]="options">
-  <gridster-item [item]="widget" *ngFor="let widget of (widgets$ | async)">
-   <ng-container *ngComponentOutlet="getDynamicComponent(widget)"></ng-container>
-  </gridster-item>
-</gridster>
-
+  <mat-sidenav mode="side" [opened]="isEditMode">
+    <dashboard-settings-form *ngIf="isSettingsFormOpened; else widgetEditor"></dashboard-settings-form>
+    <ng-template #widgetEditor>
+      <widget-editor></widget-editor>
+    </ng-template>
+  </mat-sidenav>
+</mat-sidenav-container>
