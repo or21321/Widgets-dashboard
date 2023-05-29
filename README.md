@@ -20,4 +20,4 @@ Supported widgets list:
 Iv'e used dynamic component technique to render the different widgets, and data is built with a generic, reusable and scalable approach, to support widgets of many types, with different styling properties / data that might be needed for a specific widget.
 </p>
 
-![image](https://github.com/or21321/Widgets-dashboard/assets/84462639/0797b4c1-84c7-4aa5-bbf5-75876e67dca1)
+![image](https://github.com/or21321/Widgets-dashboard/assets/84462639/0bebee10-bad2-42eb-8cd5-0d6cddcc1596)
